@@ -1,13 +1,40 @@
+# -*- coding:utf-8 -*-
+
+# python 2.6
+
+import sys
+import urllib
+import urlparse # 有问题
 import re
+from hmmlearn import hmm 
 import numpy as np
-from sklearn import cross_validation
-from sklearn import datasets
-from sklearn import svm
-from sklearn.externals import  joblib
-from sklearn.metrics import classification_report
-from sklearn import metrics
+from sklearn.externals import joblib
+import HTMLParser # 有问题
+import nltk
+import csv
+import matplotlib.pyplot as plt
+import os
 
+# python 3.6
+import sys
+import urllib
+import urllib.parse as urlparse
+import re
+from hmmlearn import hmm
+import numpy as np
+from sklearn.externals import joblib
+from html.parser import HTMLParser
+import nltk
+import csv
+import matplotlib.pyplot as plt
+import os
+#---------------------------------#
+# 修改路径
+os.getcwd()
+os.chdir("C:\\Users\\verazuo\\Desktop\\lesson\\code")
 
+#处理域名的最小长度
+MIN_LEN=10
 
 x = []
 y = []

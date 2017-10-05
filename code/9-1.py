@@ -1,32 +1,34 @@
 print(__doc__)
 
+# 引入库文件
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import svm
 
-# we create 40 separable points
+# 创造40个随机点
 np.random.seed(0)
 X = np.r_[np.random.randn(20, 2) - [2, 2], np.random.randn(20, 2) + [2, 2]]
 Y = [0] * 20 + [1] * 20
 
-# fit the model
+# 拟合模型
 clf = svm.SVC(kernel='linear')
 clf.fit(X, Y)
 
-# get the separating hyperplane
+# 构造超平面
 w = clf.coef_[0]
 a = -w[0] / w[1]
 xx = np.linspace(-5, 5)
 yy = a * xx - (clf.intercept_[0]) / w[1]
 
-# plot the parallels to the separating hyperplane that pass through the
+# 画出经过支持向量的两条平行于超平面的直线
+# plot the parallels to the separating hyperplane that pass through
 # support vectors
 b = clf.support_vectors_[0]
 yy_down = a * xx + (b[1] - a * b[0])
 b = clf.support_vectors_[-1]
 yy_up = a * xx + (b[1] - a * b[0])
 
-# plot the line, the points, and the nearest vectors to the plane
+# 绘图
 plt.plot(xx, yy, 'k-')
 plt.plot(xx, yy_down, 'k--')
 plt.plot(xx, yy_up, 'k--')
